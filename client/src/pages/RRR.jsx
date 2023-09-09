@@ -14,7 +14,7 @@ const RRR = () => {
             <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
               This feature allows you to: Enter the condition of your product and what you want to do with it, and according to your choice, our smart engine recommends what is the best way you can recycle it or maybe dispose of it.
             </p>
-
+            <form>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <textarea
                 id="OrderNotes"
@@ -24,7 +24,7 @@ const RRR = () => {
                 placeholder="Enter the condition of your Product ..."
               ></textarea>
 
-              <a
+              {/* <a
                 className="inline-block rounded bg-green-500 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-green-600"
                 href="/download"
               >
@@ -43,8 +43,36 @@ const RRR = () => {
                 href="/download"
               >
                 Dispose 
-              </a>
+              </a> */}
+              <div class="main flex border rounded-full overflow-hidden m-4 select-none">
+                <div class="title py-3 my-auto px-5 bg-green-600 text-white text-sm font-semibold mr-3">Choice</div>
+                <label class="flex radio p-2 cursor-pointer">
+                  <input class="my-auto transform scale-125" type="radio" name="sfg" />
+                  <div class="title px-2">Reduce</div>
+                </label>
+
+                <label class="flex radio p-2 cursor-pointer">
+                  <input class="my-auto transform scale-125" type="radio" name="sfg" />
+                  <div class="title px-2">Reuse</div>
+                </label>
+
+                <label class="flex radio p-2 cursor-pointer">
+                  <input class="my-auto transform scale-125" type="radio" name="sfg" />
+                  <div class="title px-2">Dispose</div>
+                </label>
+
+                
+
+              </div>
+              
             </div>
+            <a
+                className="inline-block rounded-full bg-green-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-green-600"
+                href="/download"
+              >
+                Submit 
+              </a>
+              </form>
           </div>
         </div>
       </section>
