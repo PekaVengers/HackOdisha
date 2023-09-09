@@ -1,4 +1,13 @@
-import React from 'react';
+import { Form } from "react-router-dom";
+import { BASE_URL } from "../utils/baseURL";
+import axios from "axios";
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const res = await axios.post(`${BASE_URL}/api/rrr/`, formData)
+  console.log(res);
+  return null;
+}
 
 const RRR = () => {
   return (

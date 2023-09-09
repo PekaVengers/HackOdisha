@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import UserDetails, PlantTree, Event
 from .serializers import PlantTreeSerializer, EventSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
-
+import openai
 
 @api_view(["GET"])
 def index(request):
@@ -88,3 +88,33 @@ class EventView(APIView):
       return Response("Event Created!")
 
     return Response(serializer.errors)
+
+def get_open_ai_response(user):
+
+  system = "Please provide me details of user query"
+
+  response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",  
+    messages=[
+      {
+        "role": "system",
+        "content": system
+      },
+      {
+        "role":"user",
+        "content":user
+      }
+
+    ],
+    max_tokens=500
+)
+  generated_text = response['choices'][0]["message"]['content']
+  return generated_text
+
+
+class RRR(APIView):
+  def post(self, request):
+    description = request.data.get('description')
+    resp = get_open_ai_response("Please provide a simple python code")
+    print(resp)
+    return Response("Solution")
