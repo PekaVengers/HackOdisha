@@ -1,5 +1,4 @@
-import React from 'react';
-import pig from '../Images/pig.webp';
+import pig from '../../assets/pig.webp';
 
 const Part3 = () => {
   return (

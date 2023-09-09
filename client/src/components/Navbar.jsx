@@ -16,7 +16,10 @@ export default function Navbar() {
   return (
     <div>
       <div className="p-5 bg-[#CFFFD9] px-[3rem] shadow md:flex md:items-center md:justify-between">
-        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[400px] transition-all ease-in duration-500 font-inter">
+        <ul className="md:flex md:items-center">
+              <li className="mx-4 my-6 md:my-0">
+                <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/">Home</NavLink>
+              </li>
           {
             isLoggedIn &&
             <>

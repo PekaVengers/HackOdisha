@@ -1,15 +1,15 @@
-import React from 'react';
-import ev from '../Images/Events.png';
+import rrr from '../../assets/RRR.png';
 
-const Event = () => {
+const Part2 = () => {
   return (
     <div>
       <section className='text-gray-600 body-font self-center'>
         <div className='container mx-auto flex px-5 py-12 md:flex-row flex-col items-center'>
           <div className='lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'>
-            <h1 className='title-font sm:text-4xl text-4xl mb-4 font-bold text-gray-900'>Events</h1>
+            <h1 className='title-font sm:text-4xl text-4xl mb-4 font-bold text-gray-900'>RRR</h1>
             <p className='mb-8 leading-relaxed text-2xl font-normal'>
-              Easily craft and promote your eco-friendly events. Connect with fellow environmental enthusiasts
+              Enter the name of any product, and we'll provide you with clear guidance on how to dispose it safely and
+              responsibly using the RRR (Reduce, Reuse, and Recycle) principles
             </p>
             <div className='flex justify-center'>
               <a
@@ -28,12 +28,12 @@ const Event = () => {
                   </svg>
                 </span>
 
-                <span className='text-sm font-medium transition-all group-hover:me-4'>Create Event</span>
+                <span className='text-sm font-medium transition-all group-hover:me-4'>Explore</span>
               </a>
             </div>
           </div>
           <div className='lg:max-w-sm lg:w-full md:w-1/2 w-5/6'>
-            <img className='object-cover object-center rounded' alt='hero' src={ev} />
+            <img className='object-cover object-center rounded' alt='hero' src={rrr} />
           </div>
         </div>
       </section>
@@ -41,4 +41,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default Part2;

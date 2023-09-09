@@ -1,8 +1,7 @@
-import React from 'react'
-import Part1 from '../components/Part1'
-import Part2 from '../components/Part2'
-import Part3 from '../components/Part3'
-import Event from '../components/Event'
+import Part1 from '../components/home/Part1'
+import Part2 from '../components/home/Part2'
+import Part3 from '../components/home/Part3'
+import Event from '../components/home/Event'
 
 const Home = () => {
   return (

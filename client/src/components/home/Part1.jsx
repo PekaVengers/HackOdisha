@@ -1,5 +1,4 @@
-import React from 'react'
-import d3 from "../Images/3d.jpg"
+import d3 from "../../assets/3d.jpg"
 
 const Part1 = () => {
   return (
