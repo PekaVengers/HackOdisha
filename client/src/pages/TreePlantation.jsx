@@ -5,7 +5,8 @@ import axios from "axios";
 
 export async function action({request}) {
   const formData = await request.formData();
-  const res = await axios.post(`${BASE_URL}/plant-tree/`)
+  const res = await axios.post(`${BASE_URL}/api/plant-tree/`, formData)
+  console.log(res);
   return null;
 }
 
@@ -32,6 +33,7 @@ export default function TreePlantation() {
         <div>
           <input name="profile" type="hidden" value={user.picture} />
         </div>
+        <button>Submit</button>
       </Form>
     </div>
   )
