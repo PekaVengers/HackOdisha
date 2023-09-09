@@ -106,7 +106,7 @@ const SaveAccordion = () => {
         return processedLi;
     })
 
-    const processedFoodData = elecData.map((item, index) => {
+    const processedFoodData = foodData.map((item, index) => {
         const processedLi = <GetListItem content={item} key={index} />;
         return processedLi;
     })
@@ -116,7 +116,7 @@ const SaveAccordion = () => {
     return (
         <div>
             <div className="mx-auto my-10 flex items-center justify-center gap-3">
-                <h2 className="border-2 border-red-500 text-center text-3xl md:text-5xl">
+                <h2 className="text-center text-3xl md:text-5xl">
                     How To Save
                 </h2>
                 <img src={coinImg} alt="" className="w-11 md:w-14"/>
