@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class UserDetails(models.Model):
+  email = models.EmailField(unique=True)
+  name = models.CharField(max_length=100)
+  profile = models.CharField(max_length=1024)
+
+class PlantTree(models.Model):
+  image = models.ImageField()
+  user = models.ForeignKey(UserDetails, on_delete=models.CASCADE)
