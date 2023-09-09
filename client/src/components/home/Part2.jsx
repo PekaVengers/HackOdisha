@@ -1,4 +1,5 @@
 import rrr from '../../assets/RRR.png';
+import { Link } from 'react-router-dom';
 
 const Part2 = () => {
   return (
@@ -12,9 +13,9 @@ const Part2 = () => {
               responsibly using the RRR (Reduce, Reuse, and Recycle) principles
             </p>
             <div className='flex justify-center'>
-              <a
+              <Link
                 className='group relative inline-flex items-center overflow-hidden rounded bg-green-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500'
-                href='/download'
+                to="/rrr"
               >
                 <span className='absolute -end-full transition-all group-hover:end-4'>
                   <svg
@@ -29,7 +30,7 @@ const Part2 = () => {
                 </span>
 
                 <span className='text-sm font-medium transition-all group-hover:me-4'>Explore</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className='lg:max-w-sm lg:w-full md:w-1/2 w-3/6'>

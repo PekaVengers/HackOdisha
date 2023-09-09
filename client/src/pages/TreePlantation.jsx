@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { BASE_URL } from "../utils/baseURL";
 import axios from "axios";
 import Tree from "../assets/Tree.jpg"
+import Loader from "../components/Loader/Loader"
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -15,7 +16,7 @@ export default function TreePlantation() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading || !isAuthenticated) {
-    return <div>Loading...</div>
+    return <Loader />
   }
 
   return (
