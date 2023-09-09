@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import UserDetails, PlantTree
+from .models import UserDetails, PlantTree, Event
 from .serializers import PlantTreeSerializer, EventSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -53,7 +53,10 @@ class TreePlantation(APIView):
 
 class EventView(APIView):
 
-  parser_classes = (MultiPartParser, FormParser)
+  def get(self, request):
+    events = Event.objects.all()
+    serializer = EventSerializer(events, many=True)
+    return Response(serializer.data)
 
   def post(self, request):
     name = request.data.get("name")

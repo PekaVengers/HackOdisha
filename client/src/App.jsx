@@ -6,6 +6,7 @@ import TreePlantation, {action as treePlantationAction} from "./pages/TreePlanta
 import PlantedTrees, {loader as plantedTreesLoader} from "./pages/PlantedTrees"
 import SaveAtHome from "./pages/SaveAtHome"
 import CreateEvent, {action as createEventAction} from "./pages/CreateEvent"
+import EventList, {loader as eventsLoader} from "./pages/EventList"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -15,6 +16,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route loader={plantedTreesLoader} path="planted-trees" element={<PlantedTrees />} />
     <Route action={treePlantationAction} path="tree-plantation" element={<TreePlantation />} />
     <Route action={createEventAction} path="create-event" element={<CreateEvent />} />
+    <Route loader={eventsLoader} path="events" element={<EventList />} />
     <Route path="*" element={<p>404 Not Found</p>} />
   </Route>
 ))
