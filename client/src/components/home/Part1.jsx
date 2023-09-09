@@ -1,5 +1,6 @@
 import d3 from "../../assets/3d.jpg";
 import './Part1.css'; // Create a CSS file for styling
+import {Link} from 'react-router-dom'
 
 const Part1 = () => {
   return (
@@ -11,12 +12,12 @@ const Part1 = () => {
               <br className="hidden lg:inline-block" />Towards a greener future
             </h1>
             <p className="mb-8 leading-relaxed text-xl font-medium">Your simple action today ensures a greener and healthy world for generations to come. So, take the step forward and believe. Every small effort today creates a brighter, sustainable tomorrow.</p>
-            <a
+            <Link
               className="inline-block rounded bg-green-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:bg-indigo-500"
-              href="/plant-tree"
+              to="/tree-plantation"
             >
               Plant a Tree
-            </a>
+            </Link>
           </div>
           <div className="lg:max-w-2xl lg:w-full md:w-1/2 w-5/6">
             <img className="moving-image rounded-full" alt="hero" src={d3} /> {/* Add the "moving-image" className */}
