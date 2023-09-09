@@ -6,6 +6,8 @@ import {
 
 
 const SaveAccordion = () => {
+    initTE({ Collapse });
+    
     const waterData = [
         "Regularly check faucets, pipes, and toilets for leaks.",
         "Promptly repair any leaks to prevent water wastage.",
@@ -110,8 +112,6 @@ const SaveAccordion = () => {
         return processedLi;
     })
 
-
-    initTE({ Collapse });
     return (
         <div>
             <div className="mx-auto my-10 flex items-center justify-center gap-3">
