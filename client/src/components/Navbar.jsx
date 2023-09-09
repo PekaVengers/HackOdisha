@@ -56,6 +56,18 @@ export default function Navbar() {
                   Tree Plantation
                 </NavLink>
               </li>
+              <li className="mx-4 my-6">
+                <NavLink
+                  className={({ isActive }) =>
+                    `text-xl hover:text-green-500 duration-500 font-bold ${
+                      isActive ? "text-green-500" : ""
+                    }`
+                  }
+                  to="/create-event"
+                >
+                  Create Event
+                </NavLink>
+              </li>
             </>
           )}
           {!isLoggedIn && (
