@@ -1,4 +1,3 @@
-import React from 'react'
 import coinImg from "../../assets/coin.webp"
 import {
     Collapse,
