@@ -1,10 +1,24 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import Loader from "../components/Loader/Loader";
+import badge1 from "../assets/badge1.png"
+import badge2 from "../assets/badge2.png"
+import badge3 from "../assets/badge3.jpg"
+import badge4 from "../assets/badge4.jpeg"
+import { useState } from "react";
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [badgesCount, setBadgesCount] = useState(0)
 
   if (isLoading || !isAuthenticated) {
-    return <div>Loading...</div>;
+    return <Loader />;
+  }
+
+  const badgeArr = [badge1, badge2, badge3, badge4]
+  const badgesToShow = badgeArr.slice(0, badgesCount)
+
+  function getBadges() {
+
   }
 
   return (
@@ -18,6 +32,30 @@ export default function Profile() {
           <h1 className="text-2xl font-semibold">{user.name}</h1>
           <p className="text-gray-600">{user.email}</p>
         </div>
+
+        <div>
+          <h2
+            className="text-2xl font-semibold mb-4"
+          >
+            Badges
+          </h2>
+          {badgesCount > 0 ? (
+            <div className="flex gap-3 flex-wrap">
+              {badgesToShow.map((badgeSrc, index) => (
+                <img
+                  key={index}
+                  src={badgeSrc}
+                  alt={`Image ${index}`}
+                  className="w-10 h-10 p-1 border-2 border-slate-500 rounded-full bg-slate-200"
+                />
+              ))}
+            </div>
+          ) : (
+            <p>No badges to show</p>
+          )}
+        </div>
+      </div>
+      <div>
       </div>
     </div>
   );
