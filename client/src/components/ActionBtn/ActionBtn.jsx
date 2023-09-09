@@ -1,4 +1,3 @@
-import "./ActionBtn.css"
 import { Link } from 'react-router-dom'
 
 const ActionBtn = ({ text, target = "", onClick=(() => {}), type="button"}) => {
