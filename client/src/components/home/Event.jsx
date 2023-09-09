@@ -31,7 +31,7 @@ const Event = () => {
               </a>
             </div>
           </div>
-          <div className='lg:max-w-sm lg:w-full md:w-1/2 w-5/6'>
+          <div className='lg:max-w-sm lg:w-full md:w-1/2 w-3/6'>
             <img className='object-cover object-center rounded' alt='hero' src={ev} />
           </div>
         </div>

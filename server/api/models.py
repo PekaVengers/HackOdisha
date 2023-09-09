@@ -7,4 +7,5 @@ class UserDetails(models.Model):
 
 class PlantTree(models.Model):
   image = models.ImageField()
+  message = models.TextField(null=True, blank=True)
   user = models.ForeignKey(UserDetails, on_delete=models.CASCADE)

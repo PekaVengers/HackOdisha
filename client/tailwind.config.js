@@ -6,9 +6,6 @@ export default {
   ],
   theme: {
     extend: {},
-    screens: {
-      'md': {'max': '700px'},
-    }
   },
   plugins: [],
 }
