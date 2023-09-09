@@ -9,40 +9,65 @@ export default function Navbar() {
   const { isAuthenticated } = useAuth0();
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
   const location = useLocation();
+
   useEffect(() => {
     setIsLoggedIn(isAuthenticated);
-  }, [location.pathname, isAuthenticated])
+  }, [location.pathname, isAuthenticated]);
 
   return (
     <div>
-      <div className="p-5 bg-[#CFFFD9] px-[3rem] shadow md:flex md:items-center md:justify-between">
-        <ul className="md:flex md:items-center">
-              <li className="mx-4 my-6 md:my-0">
-                <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/">Home</NavLink>
-              </li>
-          {
-            isLoggedIn &&
+      <div className="p-3 bg-[#CFFFD9] px-[3rem]">
+        <ul className="flex justify-end">
+          <li className="mx-4 my-6">
+            <NavLink
+              className={({ isActive }) =>
+                `text-xl hover:text-green-500 duration-500 font-bold ${
+                  isActive ? "text-green-500" : ""
+                }`
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          {isLoggedIn && (
             <>
-              <li className="mx-4 my-6 md:my-0">
-                <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/profile">Profile</NavLink>
+              <li className="mx-4 my-6">
+                <NavLink
+                  className={({ isActive }) =>
+                    `text-xl hover:text-green-500 duration-500 font-bold ${
+                      isActive ? "text-green-500" : ""
+                    }`
+                  }
+                  to="/profile"
+                >
+                  Profile
+                </NavLink>
               </li>
-              <li className="mx-4 my-6 md:my-0">
-                <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/tree-plantation">Tree Plantation</NavLink>
+              <li className="mx-4 my-6">
+                <NavLink
+                  className={({ isActive }) =>
+                    `text-xl hover:text-green-500 duration-500 font-bold ${
+                      isActive ? "text-green-500" : ""
+                    }`
+                  }
+                  to="/tree-plantation"
+                >
+                  Tree Plantation
+                </NavLink>
               </li>
             </>
-          }
-          {
-            !isLoggedIn &&
-            <li className="mx-4 my-6 md:my-0 font-bold">
+          )}
+          {!isLoggedIn && (
+            <li className="mx-4 my-6 font-bold">
               <LoginButton />
             </li>
-          }
-          {
-            isLoggedIn &&
-            <li className="mx-4 my-6 md:my-0">
+          )}
+          {isLoggedIn && (
+            <li className="mx-4 my-6">
               <LogoutButton />
             </li>
-          }
+          )}
         </ul>
       </div>
     </div>
