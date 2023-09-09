@@ -1,5 +1,18 @@
-export default function Home() {
+import React from 'react'
+import Part1 from '../components/Part1'
+import Part2 from '../components/Part2'
+import Part3 from '../components/Part3'
+import Event from '../components/Event'
+
+const Home = () => {
   return (
-    <div className="text-3xl font-bold underline text-center">Home</div>
+    <>
+      <Part1 />
+      <Part2 />
+      <Part3 />
+      <Event />
+    </>
   )
 }
+
+export default Home
