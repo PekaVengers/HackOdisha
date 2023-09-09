@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ev from '../../assets/Events.png';
+import {Link} from 'react-router-dom'
 
 const Event = () => {
   return (

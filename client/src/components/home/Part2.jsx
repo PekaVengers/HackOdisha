@@ -15,7 +15,7 @@ const Part2 = () => {
             <div className='flex justify-center'>
               <Link
                 className='group relative inline-flex items-center overflow-hidden rounded bg-green-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500'
-                to="/rrr"
+                to="/RRR"
               >
                 <span className='absolute -end-full transition-all group-hover:end-4'>
                   <svg

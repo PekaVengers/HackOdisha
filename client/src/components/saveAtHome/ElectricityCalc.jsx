@@ -42,7 +42,7 @@ const ElectricityCalc = () => {
     return bill;
   }
 
-  const residentialElecConsumption = (units) => {
+  const residentialElecConsumption = () => {
     const rateRanges = [
       { min: 0, max: 50, rate: 1.35 },
       { min: 50, max: 150, rate: 2.15 },
