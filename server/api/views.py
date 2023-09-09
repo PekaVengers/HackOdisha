@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import UserDetails, PlantTree
-from .serializers import PlantTreeSerializer
+from .serializers import PlantTreeSerializer, EventSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
 
@@ -44,9 +44,44 @@ class TreePlantation(APIView):
     image = request.data.get("image")
     message = request.data.get("message")
     data = {"user": user.pk, "image": image, "message": message}
-    serializer = PlantTreeSerializer(data=data, context={'email': email})
+    serializer = PlantTreeSerializer(data=data)
     if serializer.is_valid():
       serializer.save()
       return Response("Tree planted!")
+
+    return Response(serializer.errors)
+
+class EventView(APIView):
+
+  parser_classes = (MultiPartParser, FormParser)
+
+  def post(self, request):
+    name = request.data.get("name")
+    email = request.data.get("email")
+    profile = request.data.get("profile")
+
+    if not UserDetails.objects.filter(email=email).exists():
+      UserDetails.objects.create(name=name, email=email, profile=profile)
+
+    user = UserDetails.objects.get(email=email)
+    event_name = request.data.get("event-name")
+    location = request.data.get("location")
+    time = request.data.get("time")
+    organization = request.data.get("organization")
+    description = request.data.get("description")
+
+    data = {
+      "user": user.pk, 
+      "name": event_name,
+      "location": location, 
+      "time": time, 
+      "organization": organization, 
+      "description": description, 
+    }
+
+    serializer = EventSerializer(data=data)
+    if serializer.is_valid():
+      serializer.save()
+      return Response("Event Created!")
 
     return Response(serializer.errors)
