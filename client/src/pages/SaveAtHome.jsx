@@ -1,10 +1,10 @@
-import SaveAccordion from '../components/saveAtHome/saveAccordion'
+import SaveAccordion from '../components/saveAtHome/SaveAccordion'
 import ElectricityCalc from '../components/saveAtHome/ElectricityCalc'
 
 const SaveAtHome = () => {
   return (
     <div>
-        <ElectricityCalc />
+      <ElectricityCalc />
       <SaveAccordion />
     </div>
   )

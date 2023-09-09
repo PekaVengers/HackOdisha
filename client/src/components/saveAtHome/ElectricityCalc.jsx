@@ -18,8 +18,6 @@ const ElectricityCalc = () => {
     else { setConsumption(commercialElecConsumption()) }
   }
 
-  console.log(consumption)
-
   const agriElecConsumption = () => {
     const rateRanges = [
       { min: 0, max: 50, rate: 0.25 },
