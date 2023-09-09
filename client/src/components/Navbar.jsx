@@ -4,6 +4,7 @@ import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Logo from '../assets/Logo.png';
 
 export default function Navbar() {
   const { isAuthenticated } = useAuth0();
@@ -15,9 +16,12 @@ export default function Navbar() {
   }, [location.pathname, isAuthenticated]);
 
   return (
-    <div>
-      <div className="p-1 bg-[#CFFFD9] px-[1rem]">
-        <ul className="flex justify-end">
+    <div className="p-1 bg-[#CFFFD9] px-[1rem]">
+      <div className="flex items-center justify-between">
+        <NavLink to="/" className="flex items-center">
+          <img className="h-16" src={Logo} alt="Logo" />
+        </NavLink>
+        <ul className="flex">
           <li className="mx-4 my-6">
             <NavLink
               className={({ isActive }) =>
