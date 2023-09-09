@@ -10,9 +10,5 @@ class PlantTreeSerializer(ModelSerializer):
     fields = "__all__"
   
   def create(self, validated_data):
-    print("Creating...")
-    user = UserDetails.objects.get(email=self.context.get("email"))
-    print(user)
-    validated_data["user"] = user
     return super().create(validated_data)
   

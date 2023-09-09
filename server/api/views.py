@@ -24,7 +24,8 @@ class TreePlantation(APIView):
       UserDetails.objects.create(name=name, email=email, profile=profile)
     user = UserDetails.objects.get(email=email)
     image = request.data.get("image")
-    data = {"user": user.pk, "image": image}
+    message = request.data.get("message")
+    data = {"user": user.pk, "image": image, "message": message}
     serializer = PlantTreeSerializer(data=data, context={'email': email})
     if serializer.is_valid():
       serializer.save()
