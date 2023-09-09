@@ -18,7 +18,7 @@ export default function PlantedTrees() {
         <p className=' text-3xl font-normal'>Our heart felt gratitute to those who planted trees and shared their story here.💙</p>
       </div>
       <div className="w-full px-5 flex flex-col justify-between">
-        <div className="flex flex-col mt-5">
+        <div className="flex items-center flex-col mt-5 p-3">
           {
             data?.map(post => (
               <div key={post.id} className="flex justify-start py-6">
