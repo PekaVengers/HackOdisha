@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="p-3 bg-[#CFFFD9] px-[3rem]">
+      <div className="p-1 bg-[#CFFFD9] px-[1rem]">
         <ul className="flex justify-end">
           <li className="mx-4 my-6">
             <NavLink
