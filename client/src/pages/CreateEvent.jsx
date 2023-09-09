@@ -30,7 +30,7 @@ export default function CreateEvent() {
               Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 border-gray-300 text-gray-700 border rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
+              className="appearance-none text-lg block w-full bg-gray-50 border-gray-300 text-gray-700 border rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
               id="name"
               type="text"
               name="name"
@@ -47,7 +47,7 @@ export default function CreateEvent() {
               Event Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
+              className="appearance-none text-lg block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
               id="eventName"
               type="text"
               name="eventName"
@@ -66,7 +66,7 @@ export default function CreateEvent() {
               Event Location
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
+              className="appearance-none text-lg block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
               id="eventLocation"
               type="text"
               name="eventLocation"
@@ -85,7 +85,7 @@ export default function CreateEvent() {
               Event Time
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
+              className="appearance-none text-lg block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
               id="eventTime"
               type="text"
               name="eventTime"
@@ -102,7 +102,7 @@ export default function CreateEvent() {
               Organization Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
+              className="appearance-none text-lg block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-2 leading-tight focus:ring-blue-500 focus:border-blue-500 focus:bg-white"
               id="organizationName"
               type="text"
               name="organizationName"
@@ -112,8 +112,8 @@ export default function CreateEvent() {
             />
           </div>
         </div>
-        <label className="block text-gray-700 text-lg font-semibold mb-2" htmlFor="name">Name</label>
-        <textarea id="message" rows="4" className="block p-2.5 w-full text-lg text-gray-700 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" placeholder="Write details about the event..."></textarea>
+        <label className="block text-gray-700 text-lg font-semibold mb-2" htmlFor="name">Event Description</label>
+        <textarea id="message" rows="4" className="block p-2.5 w-full text-lg text-gray-700 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 focus:bg-white" placeholder="Describe details about the event..."></textarea>
         <label className="block">
           <span className="sr-only">Choose profile photo</span>
           <input type="file" 
