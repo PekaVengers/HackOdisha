@@ -72,9 +72,6 @@ export default function TreePlantation() {
               <input name="profile" type="hidden" value={user.picture} />
             </div>
             <div>
-              <input name="profile" type="hidden" value={user.picture} />
-            </div>
-            <div>
               <input name="name" type="hidden" value={user.name} />
             </div>
             <div>
