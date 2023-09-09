@@ -1,29 +1,24 @@
 import { useAuth0 } from "@auth0/auth0-react";
-export default function Profile() {
 
+export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading || !isAuthenticated) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="flex mb-[10rem]">
-      <div className="col-1 max-w-[26.9375rem] max-h-[54rem] ml-[17.5rem] mt-[5.1875rem] mr-[2.875rem]">
-        <>
-          <div className="profile h-[14.375rem] w-[14.375rem] rounded-full flex justify-center items-center mb-[4.25rem] mx-[6.25rem]">
-            <img className="rounded-full h-[12.5rem] w-[12.5rem]" src={user.picture} alt="" />
-          </div>
-          <div className="info">
-            <div className="name bg-[#D9FEDC] text-xl rounded-2xl p-[1.375rem] mb-[1.5rem]">
-              <span className="font-bold">Name:</span> {user.name}
-            </div>
-            <div className="email bg-[#D9FEDC] text-xl rounded-2xl p-[1.375rem] mb-[1.5rem]">
-              <span className="font-bold">Email:</span> {user.email}
-            </div>
-          </div>
-        </>
+    <div className="flex justify-center">
+      <div className="w-[30rem] md:w-full md:m-5 mt-10 p-6 border rounded-lg shadow-lg">
+        <div className="w-full h-64 bg-cover bg-center rounded-t-lg" style={{ backgroundImage: `url('https://source.unsplash.com/9wg5jCEPBsw')` }}></div>
+        <div className="flex justify-center mt-[-5rem]">
+          <img className="w-32 h-32 border-4 border-white rounded-full" src={user.picture} alt={user.name} />
+        </div>
+        <div className="text-center mt-4">
+          <h1 className="text-2xl font-semibold">{user.name}</h1>
+          <p className="text-gray-600">{user.email}</p>
+        </div>
       </div>
     </div>
-  )
+  );
 }
