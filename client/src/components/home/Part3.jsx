@@ -1,4 +1,5 @@
 import pig from '../../assets/pig.webp';
+import { Link } from "react-router-dom"
 
 const Part3 = () => {
   return (
@@ -15,9 +16,9 @@ const Part3 = () => {
               solutions to specific cases.
             </p>
             <div className='flex justify-center'>
-              <a
+              <Link
                 className='group relative inline-flex items-center overflow-hidden rounded bg-green-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500'
-                href='/download'
+                to="/save-at-home"
               >
                 <span className='absolute -end-full transition-all group-hover:end-4'>
                   <svg
@@ -32,7 +33,7 @@ const Part3 = () => {
                 </span>
 
                 <span className='text-sm font-medium transition-all group-hover:me-4'>Save Now</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
