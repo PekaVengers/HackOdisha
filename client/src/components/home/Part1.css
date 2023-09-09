@@ -1,0 +1,14 @@
+/* Part1.css */
+@keyframes moveUpDown {
+    0%, 100% {
+      transform: translateY(0); /* Starting and ending position (no movement) */
+    }
+    50% {
+      transform: translateY(-20px); /* Middle position (move up by 20px) */
+    }
+  }
+  
+  .moving-image {
+    animation: moveUpDown 2.25s ease-in-out infinite; /* Apply the animation */
+  }
+  

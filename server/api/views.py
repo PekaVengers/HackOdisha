@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import UserDetails
+from .models import UserDetails, PlantTree
 from .serializers import PlantTreeSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 
@@ -14,6 +14,24 @@ def index(request):
 class TreePlantation(APIView):
 
   parser_classes = (MultiPartParser, FormParser)
+
+  def get(self, request):
+    trees = PlantTree.objects.all()
+    serializer = PlantTreeSerializer(trees, many=True, context={"request": request})
+    data = serializer.data
+    final_data = []
+    for d in data:
+      user = UserDetails.objects.get(id=d.get('user'))
+      temp = {
+        'id': d.get('id'),
+        'image': d.get('image'),
+        'name': user.name,
+        'profile': user.profile,
+        'message': d.get('message'),
+      }
+      final_data.append(temp)
+
+    return Response(final_data)
 
   def post(self, request):
     name = request.data.get("name")
