@@ -1,4 +1,3 @@
-
 ![Logo](https://github.com/PekaVengers/HackOdisha/assets/91741581/880f066e-f8d0-4989-9101-b5614370467e)
 
 ## What is Planet Care?
