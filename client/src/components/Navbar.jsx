@@ -5,6 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Logo from '../assets/Logo.png';
+import {FaGripHorizontal} from 'react-icons/fa'
+import {BiArrowToRight} from 'react-icons/bi'
 
 export default function Navbar() {
   const { isAuthenticated } = useAuth0();
@@ -15,100 +17,92 @@ export default function Navbar() {
     setIsLoggedIn(isAuthenticated);
   }, [location.pathname, isAuthenticated]);
 
+  const [toggle,setToggle] = useState(false)
+
+  const toggleMobileMenu=()=>{
+    setToggle(!toggle)
+  }
+
   return (
-    <div className="p-1 bg-[#CFFFD9] px-[1rem]">
-      <div className="flex items-center justify-between">
-        <NavLink to="/" className="flex items-center">
-          <img className="h-16" src={Logo} alt="Logo" />
-        </NavLink>
-        <ul className="flex">
-          <li className="mx-4 my-6">
-            <NavLink
-              className={({ isActive }) =>
-                `text-xl hover:text-green-500 duration-500 font-bold ${
-                  isActive ? "text-green-500" : ""
-                }`
-              }
-              to="/"
+    <div className="bg-[#CFFFD9]">
+      <div className="container mx-auto px-4 md:px-8 py-4">
+        <div className="flex items-center justify-between">
+          <NavLink to="/" className="flex items-center">
+            <img className="h-16" src={Logo} alt="Logo" />
+          </NavLink>
+          <div className="md:hidden">
+            <button
+              className="text-green-500 hover:text-green-700 focus:outline-none text-3xl"
+              onClick={toggleMobileMenu}
             >
-              Home
-            </NavLink>
-          </li>
-          <li className="mx-4 my-6">
-            <NavLink
-              className={({ isActive }) =>
-                `text-xl hover:text-green-500 duration-500 font-bold ${
-                  isActive ? "text-green-500" : ""
-                }`
-              }
-              to="/planted-trees"
-            >
-              Planted Trees
-            </NavLink>
-          </li>
-          <li className="mx-4 my-6">
-            <NavLink
-              className={({ isActive }) =>
-                `text-xl hover:text-green-500 duration-500 font-bold ${
-                  isActive ? "text-green-500" : ""
-                }`
-              }
-              to="/events"
-            >
-              Events
-            </NavLink>
-          </li>
-          {isLoggedIn && (
-            <>
-              <li className="mx-4 my-6">
-                <NavLink
-                  className={({ isActive }) =>
-                    `text-xl hover:text-green-500 duration-500 font-bold ${
-                      isActive ? "text-green-500" : ""
-                    }`
-                  }
-                  to="/profile"
-                >
-                  Profile
-                </NavLink>
-              </li>
-              <li className="mx-4 my-6">
-                <NavLink
-                  className={({ isActive }) =>
-                    `text-xl hover:text-green-500 duration-500 font-bold ${
-                      isActive ? "text-green-500" : ""
-                    }`
-                  }
-                  to="/tree-plantation"
-                >
-                  Tree Plantation
-                </NavLink>
-              </li>
-              <li className="mx-4 my-6">
-                <NavLink
-                  className={({ isActive }) =>
-                    `text-xl hover:text-green-500 duration-500 font-bold ${
-                      isActive ? "text-green-500" : ""
-                    }`
-                  }
-                  to="/create-event"
-                >
-                  Create Event
-                </NavLink>
-              </li>
-            </>
-          )}
-          {!isLoggedIn && (
-            <li className="mx-4 my-6 font-bold">
-              <LoginButton />
+              {toggle ? <BiArrowToRight/> : <FaGripHorizontal/>}
+            </button>
+          </div>
+          <ul className={`md:flex ${toggle ? 'block' : 'hidden'}`}>
+            <li className="my-2 md:my-0 mx-4">
+              <NavLink
+                className="text-xl hover:text-green-500 duration-500 font-bold"
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
-          )}
-          {isLoggedIn && (
-            <li className="mx-4 my-6">
-              <LogoutButton />
+            <li className="my-2 md:my-0 mx-4">
+              <NavLink
+                className="text-xl hover:text-green-500 duration-500 font-bold"
+                to="/planted-trees"
+              >
+                Planted Trees
+              </NavLink>
             </li>
-          )}
-        </ul>
+            <li className="my-2 md:my-0 mx-4">
+              <NavLink
+                className="text-xl hover:text-green-500 duration-500 font-bold"
+                to="/events"
+              >
+                Events
+              </NavLink>
+            </li>
+            {isLoggedIn && (
+              <>
+                <li className="my-2 md:my-0 mx-4">
+                  <NavLink
+                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    to="/profile"
+                  >
+                    Profile
+                  </NavLink>
+                </li>
+                <li className="my-2 md:my-0 mx-4">
+                  <NavLink
+                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    to="/tree-plantation"
+                  >
+                    Tree Plantation
+                  </NavLink>
+                </li>
+                <li className="my-2 md:my-0 mx-4">
+                  <NavLink
+                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    to="/create-event"
+                  >
+                    Create Event
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {!isLoggedIn && (
+              <li className="my-2 md:my-0 mx-4 font-bold">
+                <LoginButton />
+              </li>
+            )}
+            {isLoggedIn && (
+              <li className="my-2 md:my-0 mx-4">
+                <LogoutButton />
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );
