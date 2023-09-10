@@ -19,7 +19,7 @@ export default function CreateEvent() {
 
   return (
     <div className="bg-gray-100 p-8  flex items-center direction flex-col">
-      <h2 className="text-[30px] font-semibold mb-4 font-sans">Create Event</h2>
+      <h2 className="text-4xl mb-4 font-sans font-bold">Create Event</h2>
       <Form method="post" className="max-w-lg  shadow-md p-7 box-border">
         <div className="flex flex-wrap -mx-4 mb-6">
           <div className="w-full md:w-full px-4">
@@ -34,7 +34,7 @@ export default function CreateEvent() {
               id="eventName"
               type="text"
               name="event-name"
-              placeholder="Web3 Meetup"
+              placeholder="Enter Event Name"
             />
           </div>
         </div>

@@ -108,6 +108,7 @@ const ElectricityCalc = () => {
             <input
               type="number"
               className="p-3 md:p-4 text-lg md:text-xl rounded-md w-[80vw] max-w-[500px]"
+              placeholder="Enter the no. of Units consumed"
               min={0}
               max={1000}
               value={units}
@@ -150,7 +151,7 @@ const ElectricityCalc = () => {
 
             </div>
             <button
-              className="border-2 p-3 px-6 md:px-8 rounded-[4px] text-xl md:text-2xl bg-blue-600 text-white hover:bg-blue-500 transition-all active:scale-[.8]"
+              className="border-2 p-3 px-6 md:px-8 text-xl md:text-2xl bg-green-600 text-white hover:bg-green-700 transition-all active:scale-[.8] rounded-2xl"
               onClick={calculateElec}
             >
               Calculate
@@ -164,7 +165,7 @@ const ElectricityCalc = () => {
               Your consumption is:
             </h4>
             <p className="text-3xl font-bold">
-              {consumption ? consumption : 0}
+              {consumption ? consumption : 0} Watts
             </p>
           </div>
         )}
