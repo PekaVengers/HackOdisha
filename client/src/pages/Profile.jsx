@@ -5,6 +5,7 @@ import badge2 from "../assets/badge2.png"
 import badge3 from "../assets/badge3.jpg"
 import badge4 from "../assets/badge4.jpeg"
 import { useEffect, useState } from "react";
+import backgroundImage from '../assets/profile-bg-image.jpeg';
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -37,9 +38,9 @@ export default function Profile() {
   const badgesToShow = badgeArr.slice(0, badgesCount)
 
   return (
-    <div className="flex justify-center">
-      <div className="w-[30rem] md:w-full md:m-5 mt-10 p-6 border rounded-lg shadow-lg">
-        <div className="w-full h-64 bg-cover bg-center rounded-t-lg" style={{ backgroundImage: `url('https://source.unsplash.com/9wg5jCEPBsw')` }}></div>
+    <div className="flex justify-center mb-5 py-1">
+      <div className="w-[30rem] md:w-[38rem] md:m-5 mt-10 p-4 border rounded-lg shadow-lg">
+        <div className="w-full h-64 bg-cover bg-center rounded-t-lg" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
         <div className="flex justify-center mt-[-5rem]">
           <img className="w-32 h-32 border-4 border-white rounded-full" src={user.picture} alt={user.name} />
         </div>

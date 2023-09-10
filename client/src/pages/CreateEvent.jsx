@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BASE_URL } from "../utils/baseURL";
 import axios from "axios";
@@ -7,10 +7,11 @@ export async function action({ request }) {
   const formData = await request.formData();
   const res = await axios.post(`${BASE_URL}/api/events/`, formData)
   console.log(res);
-  return null;
+  return redirect("/events");
 }
 
 export default function CreateEvent() {
+  const navigation = useNavigation();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading || !isAuthenticated) {
@@ -19,11 +20,10 @@ export default function CreateEvent() {
 
   return (
     <div className="bg-gray-100 p-8  flex items-center direction flex-col">
-      <h2 className="text-[30px] font-semibold mb-4 font-sans">Create Event</h2>
+      <h2 className="text-4xl mb-4 font-sans font-bold">Create Event</h2>
       <Form method="post" className="max-w-lg  shadow-md p-7 box-border">
         <div className="flex flex-wrap -mx-4 mb-6">
-
-          <div className="w-full md:w-1/2 px-4">
+          <div className="w-full md:w-full px-4">
             <label
               className="block text-gray-700 text-lg font-semibold mb-2"
               htmlFor="eventName"
@@ -35,7 +35,7 @@ export default function CreateEvent() {
               id="eventName"
               type="text"
               name="event-name"
-              placeholder="Web3 Meetup"
+              placeholder="Enter Event Name"
             />
           </div>
         </div>
@@ -105,8 +105,13 @@ export default function CreateEvent() {
           <button
             className="bg-green-500 hover:bg-green-900 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue"
             type="submit"
+            disabled={navigation.state !== "idle"}
           >
-            Create Event
+            {
+              navigation.state == "submitting"
+                ? "Creating..."
+                : "Create Event"
+            }
           </button>
         </div>
       </Form>

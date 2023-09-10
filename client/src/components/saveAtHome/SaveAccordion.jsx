@@ -1,14 +1,16 @@
-import React from 'react'
 import coinImg from "../../assets/coin.webp"
+import { useEffect } from "react";
+import GetListItem from "./GetListItem";
 import {
     Collapse,
     initTE,
 } from "tw-elements";
 
 
-const SaveAccordion = () => {
-    initTE({ Collapse });
-    
+export default function SaveAccordion() {
+    useEffect(() => {
+        initTE({ Collapse });
+      }, []);
     const waterData = [
         "Regularly check faucets, pipes, and toilets for leaks.",
         "Promptly repair any leaks to prevent water wastage.",
@@ -28,7 +30,7 @@ const SaveAccordion = () => {
         "Open curtains and blinds during the day to make the most of natural light.",
         "Close them at night to keep heat in during colder months.",
         "Invest in energy-efficient appliances with ENERGY STAR ratings.",
-        "Maintain appliances regularly to ensure they operate efficiently.",,
+        "Maintain appliances regularly to ensure they operate efficiently.",
         "Use energy monitoring tools and smart meters to track your electricity usage and identify areas for improvement.",
     ]
 
@@ -69,7 +71,7 @@ const SaveAccordion = () => {
                 <h2 className="text-center text-3xl md:text-5xl">
                     How To Save
                 </h2>
-                <img src={coinImg} alt="" className="w-11 md:w-14"/>
+                <img src={coinImg} alt="" className="w-11 md:w-14" />
             </div>
             <div id="accordionFlushExample" className="max-w-5xl mx-auto">
                 <div
@@ -155,7 +157,7 @@ const SaveAccordion = () => {
                     </div>
                 </div>
                 <div
-                    className="rounded-none border border-b-0 border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white ">
+                    className="rounded-none border border-b-0 border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white pb-12">
                     <h2 className="mb-0" id="flush-headingThree">
                         <button
                             className="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-2xl font-semibold text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
@@ -196,16 +198,5 @@ const SaveAccordion = () => {
                 </div>
             </div>
         </div>
-    )
-}
-
-export default SaveAccordion
-
-
-function GetListItem({ content }) {
-    return (
-        <li className="block list-disc mr-0 text-lg md:max-w-[80%] max-w-[90%]">
-            <span className="font-bold">-</span> {content}
-        </li>
     )
 }

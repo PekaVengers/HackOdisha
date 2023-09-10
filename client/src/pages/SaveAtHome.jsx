@@ -1,7 +1,7 @@
-import SaveAccordion from '../components/saveAtHome/SaveAccordion'
 import ElectricityCalc from '../components/saveAtHome/ElectricityCalc'
+import SaveAccordion from '../components/saveAtHome/SaveAccordion'
 
-const SaveAtHome = () => {
+export default function SaveAtHome() {
   return (
     <div>
       <ElectricityCalc />
@@ -10,4 +10,3 @@ const SaveAtHome = () => {
   )
 }
 
-export default SaveAtHome

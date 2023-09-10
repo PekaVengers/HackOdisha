@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BASE_URL } from "../utils/baseURL";
 import axios from "axios";
@@ -9,11 +9,14 @@ export async function action({ request }) {
   const formData = await request.formData();
   const res = await axios.post(`${BASE_URL}/api/plant-tree/`, formData)
   console.log(res);
-  return null;
+  return redirect("/planted-trees");
+
 }
 
 export default function TreePlantation() {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const navigation = useNavigation();
+
 
   if (isLoading || !isAuthenticated) {
     return <Loader />
@@ -38,7 +41,7 @@ export default function TreePlantation() {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Name"
                 />
 
@@ -50,7 +53,7 @@ export default function TreePlantation() {
                 <textarea
                   name="message"
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Share your story ..."
                 />
               </div>
@@ -82,8 +85,14 @@ export default function TreePlantation() {
               <button
                 type="submit"
                 className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                disabled={navigation.state !== "idle"}
               >
-                Post
+                {
+                  navigation.state == "submitting"
+                    ? "Posting..."
+                    : "Post"
+                }
+                
               </button>
             </div>
           </Form>
