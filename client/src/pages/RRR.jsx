@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import axios from "axios";
 
 export async function action({ request }) {
@@ -6,39 +6,42 @@ export async function action({ request }) {
   const method = formData.get('method')
   const description = formData.get('description')
   console.log("Submitting...")
-  const options = {
-    method: 'POST',
-    url: 'https://chatgpt-api8.p.rapidapi.com/',
-    headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': '4b4c7ad797msh5946c50a0b3a17ep1e82bfjsn19a40c9c3915',
-      'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
-    },
-    data: [
-      {
-        content: `Provide ways to ${method} the product described by the user`,
-        role: 'system'
-      },
-      {
-        content: description,
-        role: 'user'
-      }
-    ]
-  };
-  
-  try {
-      const response = await axios.request(options);
-      console.log(response.data);
-      console.log(response.data['text']);
-      return response.data['text'];
-  } catch (error) {
-      console.error(error);
-  }
-  return null;
+  // const options = {
+  //   method: 'POST',
+  //   url: 'https://chatgpt-api8.p.rapidapi.com/',
+  //   headers: {
+  //     'content-type': 'application/json',
+  //     'X-RapidAPI-Key': '4b4c7ad797msh5946c50a0b3a17ep1e82bfjsn19a40c9c3915',
+  //     'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
+  //   },
+  //   data: [
+  //     {
+  //       content: `Provide ways to ${method} the product described by the user`,
+  //       role: 'system'
+  //     },
+  //     {
+  //       content: description,
+  //       role: 'user'
+  //     }
+  //   ]
+  // };
+
+  // try {
+  //     const response = await axios.request(options);
+  //     console.log(response.data);
+  //     console.log(response.data['text']);
+  //     return response.data['text'];
+  // } catch (error) {
+  //     console.error(error);
+  // }
+  return "This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPTThis is a sample response from ChatGPT";
 }
 
-const RRR = () => {
-  return (
+export default function RRR() {
+
+  const actionData = useActionData()
+
+  return !actionData ?
     <div>
       <section className=" bg-slate-200 text-black">
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
@@ -89,7 +92,8 @@ const RRR = () => {
         </div>
       </section>
     </div>
-  );
-};
+    :
+    <div>{actionData}</div>
 
-export default RRR;
+}
+
