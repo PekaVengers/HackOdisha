@@ -17,10 +17,6 @@ export default function Profile() {
   const badgeArr = [badge1, badge2, badge3, badge4]
   const badgesToShow = badgeArr.slice(0, badgesCount)
 
-  function getBadges() {
-
-  }
-
   return (
     <div className="flex justify-center">
       <div className="w-[30rem] md:w-full md:m-5 mt-10 p-6 border rounded-lg shadow-lg">
