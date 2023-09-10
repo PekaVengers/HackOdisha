@@ -24,7 +24,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="bg-[#CFFFD9]">
+    <div className="bg-slate-50">
       <div className="container mx-auto px-4 md:px-8 py-4">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
