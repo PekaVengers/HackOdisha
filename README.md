@@ -29,6 +29,8 @@ Planet Care is a concept or initiative focused on taking actions and making choi
 
 ## Run Locally
 
+**Client**
+
 1. **Clone the project**
 
 ```bash
@@ -41,18 +43,54 @@ Planet Care is a concept or initiative focused on taking actions and making choi
   cd my-project
 ```
 
-3. **Install dependencies**
+3. **Go to Client directory**
+```bash
+  cd client
+```
+
+4. **Install dependencies**
 
 ```bash
   npm install
 ```
 
-4. **Start the server**
+5. **Create a .env file and place the value of the following:**
+```bash
+  VITE_AUTH0_DOMAIN = YOUR_AUTH0_DOMAIN
+  VITE_AUTH0_CLIENTID = YOUR_AUTH0_CLIENTID
+  VITE_REDIRECT_URI = CLIENT_URL
+  VITE_BASE_URL = SERVER_URL
+```
+
+
+6. **Start the server**
 
 ```bash
   npm run dev
 ```
 
+**Server**
+1. **Go to server directory**
+```bash
+  cd server
+```
+
+2.
+```bash
+  pip install -r requirements.txt
+```
+
+3.
+```bash
+  python manage.py migrate
+```
+
+4.
+```bash
+  python manage.py runserver
+```
+
+**Note:** If python or pip doesn't work then try using python3 or pip3
 
 ## Contributing
 
@@ -114,3 +152,11 @@ Contributions are always welcome!
 <img width="1680" alt="Screenshot 2023-09-10 at 15 59 18" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/3df5faa8-0508-4881-9ca9-080638a965c8">
 <img width="1680" alt="Screenshot 2023-09-10 at 16 17 29" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/debbd3f2-f2ec-499b-baf5-e2b94a82a300">
 <img width="1680" alt="Screenshot 2023-09-10 at 16 17 52" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/aea83434-c6ab-4a81-b929-78ca7adef360">
+
+## Acknowledgments
+  We would like to express our gratitude to the open-source community for their valuable contributions and support in making PlanetCare a reality.
+
+## License
+  PlanetCare is licensed under the MIT License. Feel free to use, modify, and distribute the code in compliance with the terms of the license.
+
+  Thank you for your interest in PlanetCare! We hope it enables you to collaborate efficiently and achieve great success in your freelance projects. Happy collaborating!
