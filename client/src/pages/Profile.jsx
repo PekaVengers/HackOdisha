@@ -53,7 +53,7 @@ export default function Profile() {
         <div className="flex justify-center mt-[-5rem]">
           <img className="w-32 h-32 border-4 border-white rounded-full" src={user.picture} alt={user.name} />
         </div>
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 mb-[5rem]">
           <h1 className="text-2xl font-semibold">{user.name}</h1>
           <p className="text-gray-600">{user.email}</p>
         </div>
