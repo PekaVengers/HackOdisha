@@ -11,6 +11,11 @@ Planet Care is a concept or initiative focused on taking actions and making choi
 - [Palak Goyal](https://www.github.com/Palakkgoyal)
 - [Sayantan Choudhary](https://www.github.com/Sch476)
 
+
+## Demo
+**Live Link:** https://hack-odisha.vercel.app/
+
+
 ## Tech Stacks
 
 <div align="left">
@@ -25,7 +30,7 @@ Planet Care is a concept or initiative focused on taking actions and making choi
 1. **Clone the project**
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/<your_github_username>/HackOdisha.git
 ```
 
 2. **Go to the project directory**
@@ -57,7 +62,7 @@ Contributions are always welcome!
    Once you have forked the repository, clone it to your local development environment using the following command:
 
    ```sh
-   $ https://github.com/<your_github_username>/HackOdisha.git
+   https://github.com/<your_github_username>/HackOdisha.git
    ```
 
    Replace **your-username** with your GitHub username.
@@ -101,3 +106,7 @@ Contributions are always welcome!
 8. **Create a Pull Request**
 
    Go to your forked repository on GitHub, and you should see a "Compare & pull request" button. Click on it to create a pull request (PR) from your branch to the main HackOdisha repository.
+
+## Screenshots
+
+<img width="1680" alt="Screenshot 2023-09-10 at 15 59 18" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/3df5faa8-0508-4881-9ca9-080638a965c8">
