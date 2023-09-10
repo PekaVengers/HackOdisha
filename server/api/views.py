@@ -5,6 +5,8 @@ from .models import UserDetails, PlantTree, Event
 from .serializers import PlantTreeSerializer, EventSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 import openai
+from bardapi import Bard
+
 
 @api_view(["GET"])
 def index(request):
@@ -112,9 +114,27 @@ def get_open_ai_response(user):
   return generated_text
 
 
+def get_resources(role="Software Engineer"):
+  input_text = f'''
+Hey Bard,
+I'm interested in a career as a {role}. Can you provide me with 3 YouTube channels with name, description and link and 3 books with name, description and link that would be helpful for me to pursue this career with their links? It should be json format where first 3 columns will be youtube : resource and then book : resource
+Please Please include both the links and names
+Thanks,
+'''
+  res = Bard().get_answer(input_text)
+  print("Response from bard is ", res)
+  # start_index = res.find("```") + 7
+  # end_index = res.rfind("```")
+  # res_data = json.loads(res[start_index:end_index])
+  return res
+
 class RRR(APIView):
+
   def post(self, request):
     description = request.data.get('description')
-    resp = get_open_ai_response("Please provide a simple python code")
+    method = request.data.get("method")
+    print(description, method)
+    # resp = get_open_ai_response("Please provide a simple python code")
+    # resp = get_resources()
     print(resp)
     return Response("Solution")
