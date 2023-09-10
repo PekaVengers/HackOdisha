@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { FaArrowCircleUp } from 'react-icons/fa';
-import Logo from '../assets/Logo.png';
+import { BsGithub } from 'react-icons/bs';
 
-const Footer = () => {
+const Footer1 = () => {
   const date = new Date();
   const [visible, setVisible] = useState(false);
 
@@ -30,62 +30,34 @@ const Footer = () => {
   }, []);
 
   return (
-    <div>
-      <footer className="bg-slate-300">
-        <div className="mx-auto max-w-screen-xl px-4 py-0 sm:px-6 lg:px-8 relative">
-          <div className="fixed bottom-4 right-4 z-10 cursor-pointer text-green-600 w-12 h-12 hover:text-green-800">
-            <FaArrowCircleUp
-              onClick={scrollToTop}
-              style={{ display: visible ? 'inline' : 'none', fontSize: '2.5rem' }} 
-            />
+    <div className='bg-slate-300'> 
+      <footer className="text-gray-600 body-font">
+        <div className="relative">
+          {/* Back to Top Button */}
+          <div
+            className="fixed bottom-4 right-4 z-10 cursor-pointer text-green-600 w-12 h-12 hover:text-green-800"
+            style={{ display: visible ? 'inline' : 'none' }}
+            onClick={scrollToTop}
+          >
+            <FaArrowCircleUp style={{ fontSize: '2.5rem' }} />
           </div>
 
-          <div className="lg:flex lg:items-end lg:justify-between">
-            <div className="flex items-center flex-col">
-              <img src={Logo} className="h-[9rem] w-[17rem] mt-20" alt="Logo" />
-              <p
-                className="mx-auto max-w-md text-center leading-relaxed text-gray-500 lg:text-left"
-              >
-                Prioritizing sustainability through responsible environmental stewardship and conservation to protect Earth's ecosystems and resources for future generations.
-              </p>
-            </div>
-
-            <ul
-              className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
-            >
-              <li>
-                <a className="text-slate-500 transition hover:text-slate-900" href="/">
-                  Home
-                </a>
-              </li>
-
-              <li>
-                <a className="text-slate-500 transition hover:text-slate-900" href="/rrr">
-                  RRR
-                </a>
-              </li>
-
-              <li>
-                <a className="text-slate-500 transition hover:text-slate-900" href="/save-at-home">
-                  Save At Home
-                </a>
-              </li>
-
-              <li>
-                <a className="text-slate-500 transition hover:text-slate-900" href="/create-event">
-                  Events
-                </a>
-              </li>
-            </ul>
+          {/* Footer Content */}
+          <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <span className="ml-3 text-2xl">Planet Care</span>
+            </a>
+            <p className="text-lg text-black sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 flex items-center">
+              © {date.getFullYear()} PlanetCare —
+              <a href="https://github.com/PekaVengers/HackOdisha" className="text-gray-900 ml-1 text-2xl" rel="noopener noreferrer" target="_blank">
+                <BsGithub />
+              </a>
+            </p>
           </div>
-
-          <p className="mt-12 text-center text-sm text-slate-700 lg:text-right">
-            Copyright &copy; {date.getFullYear()}. All rights reserved.
-          </p>
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer1;

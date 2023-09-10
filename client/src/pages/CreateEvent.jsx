@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BASE_URL } from "../utils/baseURL";
 import axios from "axios";
@@ -7,10 +7,11 @@ export async function action({ request }) {
   const formData = await request.formData();
   const res = await axios.post(`${BASE_URL}/api/events/`, formData)
   console.log(res);
-  return null;
+  return redirect("/events");
 }
 
 export default function CreateEvent() {
+  const navigation = useNavigation();
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading || !isAuthenticated) {
@@ -104,8 +105,13 @@ export default function CreateEvent() {
           <button
             className="bg-green-500 hover:bg-green-900 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline-blue"
             type="submit"
+            disabled={navigation.state !== "idle"}
           >
-            Create Event
+            {
+              navigation.state == "submitting"
+                ? "Creating..."
+                : "Create Event"
+            }
           </button>
         </div>
       </Form>
