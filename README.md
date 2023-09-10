@@ -24,7 +24,7 @@ Planet Care is a concept or initiative focused on taking actions and making choi
   <img src="https://logowik.com/content/uploads/images/openai5002.jpg" 		 height="40" alt="django logo"  />
   <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" height="40" alt="django logo"  />
   <img src="https://miro.medium.com/v2/resize:fit:644/1*d7Xs5RnaqcQtKzbNrAOAYA.png" height="40" alt="django logo"  />
-  <img src="https://assets.stickpng.com/images/62cdccb0e106734e1ce200aa.png" height="40" alt="django logo"  />
+  <img src="https://kinsta.com/wp-content/uploads/2022/02/postgres-logo.png" height="40" alt="django logo"  />
 </div>
 
 ## Run Locally
@@ -112,3 +112,5 @@ Contributions are always welcome!
 ## Screenshots
 
 <img width="1680" alt="Screenshot 2023-09-10 at 15 59 18" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/3df5faa8-0508-4881-9ca9-080638a965c8">
+<img width="1680" alt="Screenshot 2023-09-10 at 16 17 29" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/debbd3f2-f2ec-499b-baf5-e2b94a82a300">
+<img width="1680" alt="Screenshot 2023-09-10 at 16 17 52" src="https://github.com/PekaVengers/HackOdisha/assets/91741581/aea83434-c6ab-4a81-b929-78ca7adef360">
