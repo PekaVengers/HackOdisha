@@ -20,6 +20,33 @@ Planet Care is a concept or initiative focused on taking actions and making choi
 <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" height="40" alt="django logo"  />
 </div>
 
+## Run Locally
+
+1. **Clone the project**
+
+```bash
+  git clone https://link-to-project
+```
+
+2. **Go to the project directory**
+
+```bash
+  cd my-project
+```
+
+3. **Install dependencies**
+
+```bash
+  npm install
+```
+
+4. **Start the server**
+
+```bash
+  npm run dev
+```
+
+
 ## Contributing
 
 Contributions are always welcome!
