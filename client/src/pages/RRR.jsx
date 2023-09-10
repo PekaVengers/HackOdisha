@@ -93,7 +93,9 @@ export default function RRR() {
       </section>
     </div>
     :
-    <div>{actionData}</div>
-
+  <div className="mt-5 flex justify-center">
+    <div className="px-4 py-4 rounded-lg p-3 bg-white border-solid border-2 border-gray-300 md:w-[60vw] w-full m-3 shadow-sm sm:text-sm flex justify-center items-center">
+      {actionData}
+    </div>
+  </div>
 }
-
