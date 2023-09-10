@@ -23,7 +23,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-5 py-1">
       <div className="w-[30rem] md:w-[38rem] md:m-5 mt-10 p-4 border rounded-lg shadow-lg">
         <div className="w-full h-64 bg-cover bg-center rounded-t-lg" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
         <div className="flex justify-center mt-[-5rem]">
