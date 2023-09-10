@@ -85,11 +85,15 @@ DATABASES = {
 }
 
 if not DEBUG:
-    DATABASES['default'] = dj_database_url.config(
-    default=os.getenv("DATABASE_URL"),
-    conn_max_age=600,
-    conn_health_checks=True,
-    )
+    DATABASES['default'] = {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'PASSWORD': os.getenv('DATABASE_PWD'),
+       'HOST': os.getenv('DATABASE_HOST'),
+       'PORT': '5432',
+   }
+
 
 
 # Password validation
