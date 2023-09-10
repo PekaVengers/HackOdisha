@@ -41,7 +41,7 @@ export default function Navbar() {
           <ul className={`md:flex ${toggle ? 'block' : 'hidden'}`}>
             <li className="my-2 md:my-0 mx-4">
               <NavLink
-                className="text-xl hover:text-green-500 duration-500 font-bold"
+                className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                 to="/"
               >
                 Home
@@ -49,7 +49,7 @@ export default function Navbar() {
             </li>
             <li className="my-2 md:my-0 mx-4">
               <NavLink
-                className="text-xl hover:text-green-500 duration-500 font-bold"
+                className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                 to="/planted-trees"
               >
                 Planted Trees
@@ -57,7 +57,7 @@ export default function Navbar() {
             </li>
             <li className="my-2 md:my-0 mx-4">
               <NavLink
-                className="text-xl hover:text-green-500 duration-500 font-bold"
+                className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                 to="/events"
               >
                 Events
@@ -67,7 +67,7 @@ export default function Navbar() {
               <>
                 <li className="my-2 md:my-0 mx-4">
                   <NavLink
-                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                     to="/profile"
                   >
                     Profile
@@ -75,7 +75,7 @@ export default function Navbar() {
                 </li>
                 <li className="my-2 md:my-0 mx-4">
                   <NavLink
-                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                     to="/tree-plantation"
                   >
                     Tree Plantation
@@ -83,7 +83,7 @@ export default function Navbar() {
                 </li>
                 <li className="my-2 md:my-0 mx-4">
                   <NavLink
-                    className="text-xl hover:text-green-500 duration-500 font-bold"
+                    className="text-xl hover:text-green-500 duration-500 font-bold active:text-green-500 focus:text-green-500"
                     to="/create-event"
                   >
                     Create Event
