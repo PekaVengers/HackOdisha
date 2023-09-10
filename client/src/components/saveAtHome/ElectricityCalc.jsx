@@ -3,95 +3,33 @@ import calcImg from "../../assets/calc.png"
 import { useState } from 'react';
 
 const ElectricityCalc = () => {
-  const [units, setUnits] = useState(0);
-  const [category, setCategory] = useState();
+  const [data, setData] = useState({
+    electricity: 0,
+    price: 0,
+    hrs: 0,
+  });
+
+  const electricity = data.electricity,
+  price = data.price,
+  hrs = data.hrs;
+
   const [consumption, setConsumption] = useState(null)
 
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  }
+  function handleChange(event) {
+    setData(prevFormData => {
+        return {
+            ...prevFormData,
+            [event.target.name]: event.target.value
+        }
+    })
+}
 
-  function calculateElec(e) {
+  function calculateCost(e) {
     e.preventDefault()
-    if (category === "agriculture") { setConsumption(agriElecConsumption()) }
-    else if (category === "residential") { setConsumption(residentialElecConsumption()) }
-    else { setConsumption(commercialElecConsumption()) }
-  }
-
-  const agriElecConsumption = () => {
-    const rateRanges = [
-      { min: 0, max: 50, rate: 0.25 },
-      { min: 50, max: 150, rate: 0.55 },
-      { min: 150, max: 300, rate: 0.80 },
-      { min: 300, max: 500, rate: 1 },
-      { min: 500, max: 1000, rate: 2 }
-    ]
-    let bill = 0.0;
-    const s = 20;
-    for (const range of rateRanges) {
-      if (units >= range.min && units < range.max) {
-        bill = units * range.rate + s;
-        break;
-      }
-    }
-
-    if (bill === 0.0) {
-      alert("Invalid units");
-    }
-
-    return bill;
-  }
-
-  const residentialElecConsumption = () => {
-    const rateRanges = [
-      { min: 0, max: 50, rate: 1.35 },
-      { min: 50, max: 150, rate: 2.15 },
-      { min: 150, max: 300, rate: 3.00 },
-      { min: 300, max: 500, rate: 3.5 },
-      { min: 500, max: 1000, rate: 6 },
-    ];
-
-    const s = 35;
-    let bill = 0.0;
-
-    for (const range of rateRanges) {
-      if (units >= range.min && units < range.max) {
-        bill = units * range.rate + s;
-        break;
-      }
-    }
-
-    if (bill === 0.0) {
-      alert("Invalid units");
-    }
-
-    return bill;
-  };
-
-  const commercialElecConsumption = () => {
-    const rateRanges = [
-      { min: 0, max: 50, rate: 3 },
-      { min: 50, max: 150, rate: 4.5 },
-      { min: 150, max: 300, rate: 5.5 },
-      { min: 300, max: 500, rate: 6.8 },
-      { min: 500, max: 1000, rate: 9 },
-    ];
-
-    const s = 65;
-    let bill = 0.0;
-
-    for (const range of rateRanges) {
-      if (units >= range.min && units < range.max) {
-        bill = units * range.rate + s;
-        break;
-      }
-    }
-
-    if (bill === 0.0) {
-      alert("Invalid units");
-    }
-
-    return bill;
+    const powerInKWh = electricity/1000;
+    const energyConsumption = powerInKWh * hrs;
+    const totalCost = energyConsumption * price;
+    setConsumption(totalCost)
   }
 
 
@@ -105,54 +43,52 @@ const ElectricityCalc = () => {
             </h1>
             <img src={calcImg} alt="calculator" className="w-10 md:w-14" />
           </div>
+
           <div className="flex justify-center flex-col gap-4">
-            <input
-              type="number"
-              className="p-3 md:p-4 text-lg md:text-xl rounded-md w-[80vw] max-w-[500px]"
-              min={0}
-              max={1000}
-              value={units}
-              onChange={(e) => setUnits(e.target.value)}
-            />
-            <div className="flex justify-between mb-8 flex-wrap gap-4">
-              <label className="text-lg">
-                <input
-                  type="radio"
-                  name="category"
-                  value="agriculture"
-                  defaultChecked
-                  required
-                  onChange={handleCategoryChange}
-                />
-                Agriculture
+            <div className="flex gap-3 justify-between items-center">
+              <label htmlFor="electricity" className="text-xl">
+                Electricity consumed in Watts
               </label>
-
-              <label className="text-lg">
-                <input
-                  type="radio"
-                  name="category"
-                  value="residential"
-                  required
-                  onChange={handleCategoryChange}
-                />
-                Residential
-              </label>
-
-              <label className="text-lg">
-                <input
-                  type="radio"
-                  name="category"
-                  value="commercial"
-                  required
-                  onChange={handleCategoryChange}
-                />
-                Commercial
-              </label>
-
+              <input
+                type="number"
+                className="p-2 text-xl border-2 border-black rounded-md"
+                min={0}
+                max={5000}
+                value={data.electricity}
+                id="electricity"
+                name='electricity'
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex gap-3 justify-between items-center">
+              <label htmlFor="hrs" className="text-xl">Usage in hrs</label>
+              <input
+                type="number"
+                className="p-2 text-xl border-2 border-black rounded-md"
+                min={0}
+                max={1000}
+                value={data.hrs}
+                id='hrs'
+                name='hrs'
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex gap-3 justify-between items-center">
+              <label htmlFor="price" className="text-xl">Electricity Price in Rs(per kWh)</label>
+              <input
+                type="number"
+                className="p-2 text-xl border-2 border-black rounded-md"
+                min={0}
+                max={1000}
+                value={data.price}
+                id='price'
+                name='price'
+                onChange={handleChange}
+              />
             </div>
             <button
               className="border-2 p-3 px-6 md:px-8 rounded-[4px] text-xl md:text-2xl bg-blue-600 text-white hover:bg-blue-500 transition-all active:scale-[.8]"
-              onClick={calculateElec}
+              onClick={calculateCost}
             >
               Calculate
             </button>
@@ -162,10 +98,10 @@ const ElectricityCalc = () => {
         {consumption && (
           <div className="w-full mt-20 mb-8 flex justify-center items-center gap-[30px]">
             <h4 className="text-3xl">
-              Your consumption is:
+              Total cost for using the device: 
             </h4>
             <p className="text-3xl font-bold">
-              {consumption ? consumption : 0}
+              {consumption ? consumption : 0}Rs
             </p>
           </div>
         )}
