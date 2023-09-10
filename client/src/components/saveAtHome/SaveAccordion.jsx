@@ -1,4 +1,5 @@
 import coinImg from "../../assets/coin.webp"
+import { useEffect } from "react";
 import GetListItem from "./GetListItem";
 import {
     Collapse,
@@ -7,6 +8,11 @@ import {
 
 
 export default function SaveAccordion() {
+
+    useEffect(() => {
+        initTE({ Collapse });
+      }, []);
+
     const waterData = [
         "Regularly check faucets, pipes, and toilets for leaks.",
         "Promptly repair any leaks to prevent water wastage.",
