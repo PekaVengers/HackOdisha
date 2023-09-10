@@ -6,7 +6,7 @@ import './Part1.css';
 const Event = () => {
   return (
     <div className='bg-gray-100'>
-      <section className='text-gray-600 body-font py-2'>
+      <section className='text-gray-600 body-font py-1'>
         <div className='container mx-auto flex px-8 md:flex-row flex-col items-center'>
           <div className='px-10 lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'>
             <h1 className='text-4xl md:text-5xl mb-4 font-bold text-gray-900'>RRR - Reduce, Reuse, Recycle</h1>
