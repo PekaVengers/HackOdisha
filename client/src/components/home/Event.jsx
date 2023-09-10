@@ -16,7 +16,7 @@ const Event = () => {
             <div className='flex justify-center'>
               <Link
                 className='group relative inline-flex items-center rounded-lg bg-green-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500 hover:bg-green-700'
-                to='/create-event'
+                to='/events'
               >
                 <span className='absolute -left-12 group-hover:left-4'>
                   <svg

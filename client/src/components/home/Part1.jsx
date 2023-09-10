@@ -14,7 +14,7 @@ const Part1 = () => {
             <p className="mb-8 leading-relaxed text-xl font-medium">Your simple action today ensures a greener and healthy world for generations to come. So, take the step forward and believe. Every small effort today creates a brighter, sustainable tomorrow.</p>
             <Link
               className="inline-block rounded bg-green-600 px-8 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:bg-indigo-500"
-              to="/tree-plantation"
+              to="/planted-trees"
             >
               Plant a Tree
             </Link>
