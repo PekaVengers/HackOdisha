@@ -41,7 +41,7 @@ export default function TreePlantation() {
               <div className="relative">
                 <input
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter Name"
                 />
 
@@ -53,7 +53,7 @@ export default function TreePlantation() {
                 <textarea
                   name="message"
                   type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                  className="w-full rounded-lg border border-gray-300 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Share your story ..."
                 />
               </div>
