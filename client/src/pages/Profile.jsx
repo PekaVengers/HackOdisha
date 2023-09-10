@@ -4,7 +4,7 @@ import badge1 from "../assets/badge1.png"
 import badge2 from "../assets/badge2.png"
 import badge3 from "../assets/badge3.jpg"
 import badge4 from "../assets/badge4.jpeg"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -13,6 +13,25 @@ export default function Profile() {
   if (isLoading || !isAuthenticated) {
     return <Loader />;
   }
+
+  useEffect(() => {
+    const noOfTreesPlanted = 2 //Fetch planted trees;
+    if(noOfTreesPlanted > 12) {
+      setBadgesCount(4)
+    }
+    else if(noOfTreesPlanted > 7) {
+      setBadgesCount(3)
+    }
+    else if(noOfTreesPlanted > 3) {
+      setBadgesCount(2)
+    }
+    else if(noOfTreesPlanted >= 1) {
+      setBadgesCount(1)
+    }
+    else {
+      setBadgesCount(0)
+    }
+  }, [])
 
   const badgeArr = [badge1, badge2, badge3, badge4]
   const badgesToShow = badgeArr.slice(0, badgesCount)
