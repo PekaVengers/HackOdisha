@@ -36,7 +36,7 @@ const Footer1 = () => {
         <div className="relative">
           {/* Back to Top Button */}
           <div
-            className="fixed bottom-4 right-4 z-10 cursor-pointer text-green-600 w-12 h-12 hover:text-green-800"
+            className="fixed bottom-4 right-4 z-10 cursor-pointer text-green-500 w-12 h-12 hover:text-green-800"
             style={{ display: visible ? 'inline' : 'none' }}
             onClick={scrollToTop}
           >
