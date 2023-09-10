@@ -1,6 +1,8 @@
 import { BASE_URL } from "../utils/baseURL"
 import axios from "axios"
 import { useLoaderData } from "react-router";
+import { Link } from "react-router-dom";
+import pl from "../assets/plus.png"
 
 export async function loader() {
   const res = await axios.get(`${BASE_URL}/api/events/`)
@@ -14,7 +16,7 @@ export default function EventList() {
   return (
     <div className="flex flex-col items-center">
       {data?.map(event => (
-        <div key={event.id} className="border-solid w-full md:w-[40rem] border-2 border-green-500 p-3 md:m-5 m-6 inline-block rounded-br-xl	rounded-tl-xl">
+        <div key={event.id} className="border-solid w-full md:w-[40rem] border-2 border-green-500 p-3 md:m-5 m-6 inline-block rounded-br-xl    rounded-tl-xl">
           <h1 className="text-2xl font-bold mb-2">{event.name}</h1>
           <p className="text-gray-600">{event.organization}</p>
           <p className="text-gray-600">{event.location}</p>
@@ -22,6 +24,9 @@ export default function EventList() {
           <p className="text-gray-800 mt-2">{event.description}</p>
         </div>
       ))}
+      <Link to="/create-event" >
+        <img src={pl} className="relative h-14 cursor-pointer lg:left-[45rem] md:left-0 left-0"/>
+      </Link>
     </div>
 
   )
