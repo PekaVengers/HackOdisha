@@ -22,7 +22,9 @@ Planet Care is a concept or initiative focused on taking actions and making choi
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
   <img src="https://logowik.com/content/uploads/images/openai5002.jpg" 		 height="40" alt="django logo"  />
-<img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" height="40" alt="django logo"  />
+  <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" height="40" alt="django logo"  />
+  <img src="https://miro.medium.com/v2/resize:fit:644/1*d7Xs5RnaqcQtKzbNrAOAYA.png" height="40" alt="django logo"  />
+  <img src="https://assets.stickpng.com/images/62cdccb0e106734e1ce200aa.png" height="40" alt="django logo"  />
 </div>
 
 ## Run Locally
