@@ -22,8 +22,7 @@ export default function CreateEvent() {
       <h2 className="text-[30px] font-semibold mb-4 font-sans">Create Event</h2>
       <Form method="post" className="max-w-lg  shadow-md p-7 box-border">
         <div className="flex flex-wrap -mx-4 mb-6">
-
-          <div className="w-full md:w-1/2 px-4">
+          <div className="w-full md:w-full px-4">
             <label
               className="block text-gray-700 text-lg font-semibold mb-2"
               htmlFor="eventName"

@@ -1,4 +1,3 @@
-import React from 'react'
 import calcImg from "../../assets/calc.png"
 import { useState } from 'react';
 

@@ -1,12 +1,12 @@
-import React from 'react'
 import coinImg from "../../assets/coin.webp"
+import GetListItem from "./GetListItem";
 import {
     Collapse,
     initTE,
 } from "tw-elements";
 
 
-const SaveAccordion = () => {
+export default function SaveAccordion() {
     const waterData = [
         "Regularly check faucets, pipes, and toilets for leaks.",
         "Promptly repair any leaks to prevent water wastage.",
@@ -246,16 +246,5 @@ const SaveAccordion = () => {
                 </div>
             </div>
         </div>
-    )
-}
-
-export default SaveAccordion
-
-
-function GetListItem({ content }) {
-    return (
-        <li className="block list-disc mr-0 text-lg md:max-w-[80%] max-w-[90%]">
-            <span className="font-bold">-</span> {content}
-        </li>
     )
 }

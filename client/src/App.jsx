@@ -7,6 +7,8 @@ import PlantedTrees, {loader as plantedTreesLoader} from "./pages/PlantedTrees"
 import SaveAtHome from "./pages/SaveAtHome"
 import CreateEvent, {action as createEventAction} from "./pages/CreateEvent"
 import NotFound from "./components/NotFound"
+import EventList, {loader as eventsLoader} from "./pages/EventList"
+import RRR, {action as rrrAction} from "./pages/RRR"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -16,6 +18,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route loader={plantedTreesLoader} path="planted-trees" element={<PlantedTrees />} />
     <Route action={treePlantationAction} path="tree-plantation" element={<TreePlantation />} />
     <Route action={createEventAction} path="create-event" element={<CreateEvent />} />
+    <Route loader={eventsLoader} path="events" element={<EventList />} />
+    <Route action={rrrAction} path="rrr" element={<RRR />} />
     <Route path="*" element={<NotFound />} />
   </Route>
 ))
