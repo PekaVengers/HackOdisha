@@ -1,5 +1,5 @@
 import ElectricityCalc from '../components/saveAtHome/ElectricityCalc'
-import SaveAccordion from '../components/saveAtHome/SaveAccordion'
+import SaveAccordion from "../components/saveAtHome/SaveAccordion" 
 
 export default function SaveAtHome() {
   return (
