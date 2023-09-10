@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     useRefreshTokens
     cacheLocation="localstorage"
     authorizationParams={{
-      redirect_uri: "http://localhost:5173/",
+      redirect_uri: import.meta.env.VITE_REDIRECT_URI,
     }}
   >
     <App />

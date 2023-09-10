@@ -18,22 +18,25 @@ class TreePlantation(APIView):
   parser_classes = (MultiPartParser, FormParser)
 
   def get(self, request):
-    trees = PlantTree.objects.all()
-    serializer = PlantTreeSerializer(trees, many=True, context={"request": request})
-    data = serializer.data
-    final_data = []
-    for d in data:
-      user = UserDetails.objects.get(id=d.get('user'))
-      temp = {
-        'id': d.get('id'),
-        'image': d.get('image'),
-        'name': user.name,
-        'profile': user.profile,
-        'message': d.get('message'),
-      }
-      final_data.append(temp)
-
-    return Response(final_data)
+    try:
+      trees = PlantTree.objects.all()
+      serializer = PlantTreeSerializer(trees, many=True, context={"request": request})
+      data = serializer.data
+      final_data = []
+      for d in data:
+        user = UserDetails.objects.get(id=d.get('user'))
+        temp = {
+          'id': d.get('id'),
+          'image': d.get('image'),
+          'name': user.name,
+          'profile': user.profile,
+          'message': d.get('message'),
+        }
+        final_data.append(temp)
+      return Response(final_data)
+    except Exception as e:
+      print(e)
+      return Response("Error")
 
   def post(self, request):
     name = request.data.get("name")
