@@ -4,12 +4,40 @@ import badge1 from "../assets/badge1.png"
 import badge2 from "../assets/badge2.png"
 import badge3 from "../assets/badge3.jpg"
 import badge4 from "../assets/badge4.jpeg"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import backgroundImage from '../assets/profile-bg-image.jpeg';
+import axios from "axios";
+import { BASE_URL } from "../utils/baseURL";
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [badgesCount, setBadgesCount] = useState(0)
+  const [badgesCount, setBadgesCount] = useState(0);
+
+  useEffect(() => {
+    async function getCount() {
+      const res = await axios.post(`${BASE_URL}/api/tree-count/`, {email: user.email});
+      const noOfTreesPlanted = res.data;
+      if(noOfTreesPlanted > 12) {
+        setBadgesCount(4)
+      }
+      else if(noOfTreesPlanted > 7) {
+        setBadgesCount(3)
+      }
+      else if(noOfTreesPlanted > 3) {
+        setBadgesCount(2)
+      }
+      else if(noOfTreesPlanted >= 1) {
+        setBadgesCount(1)
+      }
+      else {
+        setBadgesCount(0)
+      }
+    }
+    if (user) {
+      getCount();
+    }
+    
+  }, [user])
 
   if (isLoading || !isAuthenticated) {
     return <Loader />;
@@ -17,10 +45,6 @@ export default function Profile() {
 
   const badgeArr = [badge1, badge2, badge3, badge4]
   const badgesToShow = badgeArr.slice(0, badgesCount)
-
-  function getBadges() {
-
-  }
 
   return (
     <div className="flex justify-center mb-5 py-1">

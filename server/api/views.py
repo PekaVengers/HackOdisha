@@ -141,3 +141,13 @@ class RRR(APIView):
     # resp = get_resources()
     print(resp)
     return Response("Solution")
+
+@api_view(["POST"])
+def get_tree_count(request):
+  email = request.data.get("email")
+  if not UserDetails.objects.filter(email=email).exists():
+    return Response(0)
+  user = UserDetails.objects.get(email=email)
+  ctr = PlantTree.objects.filter(user=user).count()
+
+  return Response(ctr)
