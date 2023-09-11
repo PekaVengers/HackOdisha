@@ -5,35 +5,34 @@ export async function action({ request }) {
   const formData = await request.formData();
   const method = formData.get('method')
   const description = formData.get('description')
-  console.log("Submitting...")
-  // const options = {
-  //   method: 'POST',
-  //   url: 'https://chatgpt-api8.p.rapidapi.com/',
-  //   headers: {
-  //     'content-type': 'application/json',
-  //     'X-RapidAPI-Key': '4b4c7ad797msh5946c50a0b3a17ep1e82bfjsn19a40c9c3915',
-  //     'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
-  //   },
-  //   data: [
-  //     {
-  //       content: `Provide ways to ${method} the product described by the user`,
-  //       role: 'system'
-  //     },
-  //     {
-  //       content: description,
-  //       role: 'user'
-  //     }
-  //   ]
-  // };
+  const options = {
+    method: 'POST',
+    url: 'https://chatgpt-api8.p.rapidapi.com/',
+    headers: {
+      'content-type': 'application/json',
+      'X-RapidAPI-Key': '4b4c7ad797msh5946c50a0b3a17ep1e82bfjsn19a40c9c3915',
+      'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
+    },
+    data: [
+      {
+        content: `Provide ways to ${method} the product described by the user`,
+        role: 'system'
+      },
+      {
+        content: description,
+        role: 'user'
+      }
+    ]
+  };
 
-  // try {
-  //     const response = await axios.request(options);
-  //     console.log(response.data);
-  //     console.log(response.data['text']);
-  //     return response.data['text'];
-  // } catch (error) {
-  //     console.error(error);
-  // }
+  try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      console.log(response.data['text']);
+      return response.data['text'];
+  } catch (error) {
+      console.error(error);
+  }
   return "This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPT This is a sample response from ChatGPTThis is a sample response from ChatGPT";
 }
 
